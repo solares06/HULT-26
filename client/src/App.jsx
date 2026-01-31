@@ -93,7 +93,7 @@ function App() {
     e.preventDefault();
     setSubmitStatus(null);
     try {
-      await axios.post(`${API_BASE}/properties`, {
+      await axios.post(`https://hult-26.onrender.com/api/properties`, {
         ownerName: hostForm.ownerName,
         title: hostForm.title,
         location: hostForm.location,
@@ -102,7 +102,7 @@ function App() {
       });
       setSubmitStatus('success');
       setHostForm({ ownerName: '', title: '', location: '', areaSqFt: '' });
-      const res = await axios.get(`${API_BASE}/properties`);
+      const res = await axios.get(`https://hult-26.onrender.com/api/properties`);
       setProperties(Array.isArray(res.data) ? res.data : properties);
     } catch (err) {
       setSubmitStatus('error');
