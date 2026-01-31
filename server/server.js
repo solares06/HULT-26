@@ -7,7 +7,12 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173", // For testing on your laptop
+    "https://hult-26.vercel.app/" // YOUR Vercel URL (Remove the trailing slash /)
+  ]
+}));
 app.use(express.json());
 
 // In-memory mock data store (fallback when MongoDB is offline)
